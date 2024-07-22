@@ -31,9 +31,8 @@ class TestCreateOrder:
         headers = {
             'Content-Type': 'application/json'
         }
-        response = requests.post(Constants.URL+'/api/v1/orders', data=payload_string, headers=headers)
+        response = requests.post(Constants.URL+Constants.CREATE_PATH, data=payload_string, headers=headers)
         r = response.json()
-        print(f"создание заказа: {response.text}")
         assert 'track' in response.text
         assert response.status_code == 201
         self.track = r['track']

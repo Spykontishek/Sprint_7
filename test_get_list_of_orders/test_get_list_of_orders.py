@@ -11,8 +11,7 @@ class TestGetListOfOrders:
     @allure.description('Создаем 2 заказа с указанием станций "3333" и "4444", система должна вернуть все заказы, связанные с этими станциями')
     @pytest.mark.usefixtures('create_order_with_different_values_metroStation')
     def test_get_list_of_orders_success(self, create_order_with_different_values_metroStation):
-        response = requests.get(Constants.URL + 'api/v1/orders?nearestStation=["3333", "4444"]')
-        print(f"Список заказов: {response.text}")
+        response = requests.get(Constants.URL + Constants.GET_PATH+'?nearestStation=["3333", "4444"]')
         self.track = create_order_with_different_values_metroStation
 
     @allure.issue('https://spykontishek.youtrack.cloud/issue/7M-170/Oshibka-400-Bad-Request-pri-otmene-zakaza-na-ruchku-api-v1-orders-cancel','7M-170')

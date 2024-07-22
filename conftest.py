@@ -15,16 +15,9 @@ def reg():
     headers = {
         'Content-Type': 'application/json'
     }
-    response = requests.post(Constants.URL + '/api/v1/courier', data=payload_string, headers=headers)
-    print(f"Создание курьера: {response.text}")
-    print(f'код ответа: {response.status_code}')
+    requests.post(Constants.URL+Constants.REG_PATH, data=payload_string, headers=headers)
 
 
-@pytest.fixture
-def delete(self, id):
-    self.id = id
-    response = requests.delete(Constants.URL+'/api/v1/courier/{}'.format(self.id))
-    print(f"удаление курьера: {response.text}")
 
 
 @pytest.fixture(scope="function", params=["3333", "4444"])
@@ -47,8 +40,8 @@ def create_order_with_different_values_metroStation(request):
     headers = {
         'Content-Type': 'application/json'
     }
-    response = requests.post(Constants.URL+'/api/v1/orders', data=payload_string, headers=headers)
-    print(f"создание заказа: {response.text}")
+    requests.post(Constants.URL+Constants.CREATE_PATH, data=payload_string, headers=headers)
+
 
 
 

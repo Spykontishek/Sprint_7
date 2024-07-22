@@ -8,6 +8,8 @@ from helpers.helpers import Helpers
 
 
 class TestAutorizationCourier():
+    def __init__(self):
+        self.id = None
     @allure.title('Позитивная проверка авторизации курьера с заполнением всех обязательных полей')
     @allure.description('Запрос должен вернуть правильный код ответа и "id" курьера')
     @pytest.mark.usefixtures('reg')
@@ -20,9 +22,8 @@ class TestAutorizationCourier():
         headers = {
             'Content-Type': 'application/json'
         }
-        response = requests.post(Constants.URL+'/api/v1/courier/login', data=payload_string, headers=headers)
+        response = requests.post(Constants.URL+Constants.AUTH_PATH, data=payload_string, headers=headers)
         r = response.json()
-        print(f"Авторизация курьера: {response.text}")
         assert 'id' in response.text
         assert response.status_code == 200
         self.id = r['id']

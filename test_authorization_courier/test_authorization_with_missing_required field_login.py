@@ -19,8 +19,7 @@ class TestAutorizationCourierWithoutLogin():
         headers = {
             'Content-Type': 'application/json'
         }
-        response = requests.post(Constants.URL+'/api/v1/courier/login', data=payload_string, headers=headers)
-        print(f"Авторизация курьера: {response.text}")
+        response = requests.post(Constants.URL+Constants.AUTH_PATH, data=payload_string, headers=headers)
         assert '"message":"Недостаточно данных для входа"' in response.text
         assert response.status_code == 400
 
