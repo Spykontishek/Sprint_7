@@ -1,0 +1,11 @@
+class Constants:
+    URL = 'https://qa-scooter.praktikum-services.ru/'
+    LOGIN = 'qazqa'
+    PASSWORD = '1234'
+    FIRSTNAME = 'qazqa'
+    REG_PATH = '/api/v1/courier'
+    AUTH_PATH = '/api/v1/courier/login'
+    CREATE_PATH = '/api/v1/orders'
+    GET_PATH = '/api/v1/orders'
+    DEL_PATH = '/api/v1/courier/{}'
+    CANCEL_PATH = '/api/v1/orders/cancel'
